@@ -3,8 +3,9 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 require('dotenv').config();
-
 const userRoutes = require('./src/routes/userRoutes');
+const productRouter=require('./src/routes/productRoutes')
+
 
 
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/E-commerce';
@@ -61,6 +62,7 @@ app.get('/health', (req, res) => {
 });
 
 app.use('/user',userRoutes)
+app.use('/product',productRouter)
 
 
 // Start server

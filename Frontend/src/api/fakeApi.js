@@ -10,7 +10,11 @@ const api = axios.create({
 })
 
 export async function fetchProducts() {
-  const res = await api.get('/products')
+  const token = localStorage.getItem("token");
+  const res = await api.get('http://localhost:3000/product/all', {
+    headers: { Authorization: `Bearer ${token}` },
+  })
+
   return res.data
 }
 
@@ -20,7 +24,11 @@ export async function fetchProduct(id) {
 }
 
 export async function fetchCategories() {
-  const res = await api.get('/categories')
+  const token = localStorage.getItem("token");
+  const res = await api.get('http://localhost:3000/product/categories', {
+    headers: { Authorization: `Bearer ${token}` },
+  })
+
   return res.data
 }
 

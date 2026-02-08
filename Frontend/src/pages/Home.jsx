@@ -5,11 +5,8 @@ import { useCategoryContext } from "../contexts/CategoryContext";
 
 export default function Home() {
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const { selectedCategory } = useCategoryContext();
-
-  const token=localStorage.getItem("token");
-  if(!token) return window.location.href="http://localhost:5173/login";
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
@@ -22,10 +19,12 @@ export default function Home() {
           : fetchProducts();
 
         const data = await fetchData;
+        console.log(data);
         if (!controller.signal.aborted) {
           setProducts(data);
         }
-      } catch {
+      } catch (error) {
+        console.error('Error fetching products:', error);
         if (!controller.signal.aborted) {
           setProducts([]);
         }
