@@ -1,5 +1,3 @@
-# E-Commerce Web App
-
 A modern, full-stack e-commerce application built with React, Node.js, and Tailwind CSS.
 
 ## 📋 Project Structure
