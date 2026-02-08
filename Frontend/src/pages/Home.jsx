@@ -8,6 +8,10 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const { selectedCategory } = useCategoryContext();
 
+  const token=localStorage.getItem("token");
+  if(!token) return window.location.href="http://localhost:5173/login";
+
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     const controller = new AbortController();
 

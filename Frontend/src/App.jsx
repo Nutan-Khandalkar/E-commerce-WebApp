@@ -4,13 +4,21 @@ import Navbar from './components/NavBar'
 import CartSidebar from './components/CartSidebar'
 
 function App() {
-  return (
-<>
-    <Navbar />
-    <Outlet></Outlet>
-    <CartSidebar></CartSidebar>
-</>
-  )
+  const token = localStorage.getItem("token");
+  if (!token) {
+    return <Outlet></Outlet>
+  } else {
+    return (
+      <>
+
+        <Navbar />
+        <Outlet></Outlet>
+        <CartSidebar></CartSidebar>
+      </>
+    )
+  }
+
+
 }
 
 export default App

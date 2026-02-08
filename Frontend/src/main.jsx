@@ -1,5 +1,4 @@
 import React from "react";
-import { Children, StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
@@ -10,6 +9,8 @@ import Checkout from './pages/Checkout.jsx'
 import Home from './pages/Home.jsx'
 import { CategoryProvider } from './contexts/CategoryContext.jsx'
 import { CartProvider } from "./contexts/CartContext";
+import Signup from "./pages/Signup.jsx";
+import Login from "./pages/Login.jsx";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,14 @@ const router = createBrowserRouter([
       {
         path: '/checkout',
         element: <Checkout></Checkout>
+      },
+      {
+        path:'/signup',
+        element:<Signup></Signup>
+      },
+      {
+        path:'/login',
+        element:<Login></Login>
       },
 
     ]
